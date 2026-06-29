@@ -3,87 +3,64 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d1322" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="theme-color" content="#111827" />
-  <title>Central Chic Warsaw</title>
+  <meta name="apple-mobile-web-app-title" content="Central Chic" />
   <link rel="manifest" href="manifest.webmanifest" />
+  <title>Central Chic Warsaw</title>
   <style>
-    :root{--bg:#0f172a;--card:#111827;--card2:#1f2937;--text:#f9fafb;--muted:#aeb7c6;--accent:#d6b36a;--bad:#ef4444;--ok:#22c55e;}
-    *{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:radial-gradient(circle at top,#263247 0,#0f172a 46%,#070b14 100%);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:22px;}
-    .app{width:100%;max-width:430px}.card{background:rgba(17,24,39,.92);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:26px;box-shadow:0 24px 70px rgba(0,0,0,.35)}
-    .brand{display:flex;gap:14px;align-items:center;margin-bottom:22px}.logo{width:56px;height:56px;border-radius:18px;background:linear-gradient(135deg,#d6b36a,#8d7137);display:grid;place-items:center;font-size:28px;box-shadow:0 10px 28px rgba(214,179,106,.25)}
-    h1{font-size:25px;line-height:1.1;margin:0}.sub{color:var(--muted);font-size:14px;margin-top:6px}.hero{margin:18px 0 22px;padding:18px;border-radius:22px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08)}
-    .hero b{color:var(--accent)}button,input{width:100%;border:0;border-radius:16px;font-size:16px}button{padding:15px 16px;font-weight:700;color:#111827;background:var(--accent);margin-top:10px}button.secondary{background:rgba(255,255,255,.09);color:var(--text);border:1px solid rgba(255,255,255,.1)}button.danger{background:rgba(239,68,68,.12);color:#fecaca;border:1px solid rgba(239,68,68,.25)}
-    input{padding:15px 16px;background:#0b1220;color:var(--text);border:1px solid rgba(255,255,255,.12);outline:none;margin-top:10px;text-align:center;letter-spacing:7px;font-weight:800} .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.msg{min-height:22px;margin-top:13px;font-size:14px;color:var(--muted);line-height:1.35}.ok{color:#86efac}.err{color:#fca5a5}.hidden{display:none!important}.panel h2{margin:0 0 8px;font-size:23px}.tile{margin-top:12px;padding:14px;border-radius:18px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.08)}.small{font-size:13px;color:var(--muted);line-height:1.35}.footer{margin-top:14px;text-align:center;color:#7d8797;font-size:12px}
+    :root{--bg:#070d18;--card:#111827ee;--card2:#1f2937;--line:#334155;--text:#f8fafc;--muted:#a9b4c4;--gold:#caa75d;--green:#22c55e;--red:#ef4444;--blue:#38bdf8}
+    *{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Arial,sans-serif;background:radial-gradient(circle at top,#1b2a44 0,#07101e 48%,#030712 100%);color:var(--text);min-height:100svh;padding:env(safe-area-inset-top) 18px 28px;display:flex;align-items:center;justify-content:center}.wrap{width:min(680px,100%)}.card{background:var(--card);border:1px solid #273448;border-radius:30px;padding:24px;box-shadow:0 28px 70px #0008}.brand{display:flex;gap:16px;align-items:center;margin-bottom:24px}.logo{width:72px;height:72px;border-radius:22px;background:linear-gradient(135deg,#e4c16f,#9b7a31);display:grid;place-items:center;box-shadow:0 14px 28px #caa75d2e}.logo svg{width:34px;height:34px}.title h1{font-size:32px;line-height:1.05;margin:0 0 8px}.title p{margin:0;color:var(--muted);font-size:17px}.panel{display:none}.panel.active,.login.active{display:block}.grid{display:grid;gap:12px}.tile{background:#1d2636;border:1px solid #334155;border-radius:22px;padding:18px}.tile h2{font-size:20px;margin:0 0 8px}.tile p{margin:0;color:var(--muted);line-height:1.35;font-size:16px}.row{display:flex;gap:10px;flex-wrap:wrap}.badge{border:1px solid #334155;border-radius:999px;padding:9px 12px;background:#111827;color:#cbd5e1;font-size:14px}.badge.green{border-color:#14532d;color:#86efac}.badge.blue{border-color:#075985;color:#7dd3fc}.btn{appearance:none;border:1px solid #334155;background:#263041;color:#fff;border-radius:22px;width:100%;padding:17px 18px;font-size:19px;font-weight:800;letter-spacing:-.01em}.btn.gold{background:linear-gradient(135deg,#d6b56b,#9d7a31);border-color:#d6b56b;color:#111827}.btn.dark{background:#111827}.btn.danger{background:#31151b;border-color:#7f1d1d}.btn:active{transform:translateY(1px)}.pin{display:grid;grid-template-columns:1fr auto;gap:10px;margin-top:10px}.pin input{border:1px solid #334155;border-radius:18px;background:#0f172a;color:white;font-size:22px;padding:14px 16px;min-width:0}.msg{min-height:26px;color:#a9b4c4;margin:12px 2px 0;font-size:15px;line-height:1.35}.msg.ok{color:#86efac}.msg.err{color:#fca5a5}.section-title{font-size:27px;margin:0 0 18px}.small{font-size:13px;color:#94a3b8;line-height:1.35;margin-top:14px}.list{margin:10px 0 0;padding-left:18px;color:#cbd5e1}.list li{margin:5px 0}.statusbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px}.select{width:100%;padding:14px;border-radius:16px;border:1px solid #334155;background:#0f172a;color:#fff;font-size:16px}.hidden{display:none}@media(max-width:420px){.card{padding:20px;border-radius:28px}.title h1{font-size:28px}.logo{width:64px;height:64px}.btn{font-size:18px}.section-title{font-size:25px}}
   </style>
 </head>
 <body>
-  <main class="app">
-    <section id="login" class="card">
+  <main class="wrap">
+    <section class="card">
       <div class="brand">
-        <div class="logo">⌂</div><div><h1>Central Chic Warsaw</h1><div class="sub">Panel apartamentu</div></div>
+        <div class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 11.5 12 4l8 7.5V21H6v-7.5h12" stroke="white" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="title"><h1>Central Chic Warsaw</h1><p id="loginState">Dostęp zabezpieczony</p></div>
       </div>
-      <div class="hero"><b>Face ID</b> może otwierać panel bez wpisywania PIN-u. PIN 1234 zostaje jako awaryjny dostęp.</div>
-      <button id="loginFace">Otwórz przez Face ID</button>
-      <button id="registerFace" class="secondary">Dodaj Face ID na tym iPhonie</button>
-      <input id="pin" inputmode="numeric" maxlength="4" placeholder="••••" aria-label="PIN" />
-      <div class="row"><button id="pinBtn" class="secondary">Wejdź PIN-em</button><button id="resetFace" class="danger">Reset Face ID</button></div>
-      <div id="message" class="msg"></div>
-      <div class="footer">Face ID wymaga HTTPS albo localhost.</div>
-    </section>
-    <section id="panel" class="card panel hidden">
-      <div class="brand"><div class="logo">⌂</div><div><h1>Central Chic Warsaw</h1><div class="sub">Zalogowano</div></div></div>
-      <h2>Panel główny</h2>
-      <div class="tile"><b>Status apartamentu</b><div class="small">Tu zostawiamy Twoje dotychczasowe moduły: sprzątanie, tekstylia, checklista, rezerwacje i notatki.</div></div>
-      <div class="tile"><b>Dostęp</b><div class="small">Wejście przez Face ID / passkey albo PIN awaryjny.</div></div>
-      <button id="logout" class="secondary">Wyloguj</button>
+
+      <div id="login" class="login active">
+        <h2 class="section-title">Logowanie</h2>
+        <div class="grid">
+          <button class="btn gold" id="registerBtn">Skonfiguruj Face ID</button>
+          <button class="btn" id="faceBtn">Otwórz przez Face ID</button>
+          <div class="tile">
+            <h2>PIN awaryjny</h2>
+            <p>Użyj tylko, gdy Face ID/passkey nie jest jeszcze skonfigurowany.</p>
+            <div class="pin"><input id="pin" inputmode="numeric" type="password" placeholder="PIN" maxlength="8" autocomplete="off"><button class="btn dark" id="pinBtn" style="width:auto;padding-inline:20px">OK</button></div>
+          </div>
+        </div>
+        <p id="msg" class="msg"></p>
+        <p class="small"><b>Ważne:</b> Face ID działa tylko po HTTPS, np. Netlify. Zwykłe otwarcie pliku HTML nie uruchomi prawdziwego passkey.</p>
+      </div>
+
+      <div id="panel" class="panel">
+        <div class="statusbar"><h2 class="section-title" style="margin:0">Panel główny</h2><span class="badge green">Zalogowano</span></div>
+        <div class="grid">
+          <div class="tile"><h2>Status apartamentu</h2><select class="select" id="aptStatus"><option>Gotowy dla gości</option><option>Do sprzątania</option><option>Sprzątanie w toku</option><option>Goście w apartamencie</option><option>Usterka / blokada</option></select></div>
+          <div class="tile"><h2>Checklisty</h2><p>Sprzątanie, tekstylia, pralnia, rezerwacje i notatki.</p><ul class="list"><li>Łazienka i kuchnia sprawdzone</li><li>Pościel/ręczniki policzone</li><li>Kapsułki Nespresso i kosmetyki uzupełnione</li><li>Zdjęcia po sprzątaniu zapisane</li></ul></div>
+          <div class="row"><span class="badge blue">Face ID / passkeys</span><span class="badge">PIN awaryjny</span><span class="badge">PWA iPhone</span></div>
+          <button class="btn danger" id="logoutBtn">Wyloguj</button>
+          <button class="btn dark" id="resetBtn">Reset Face ID na tym urządzeniu</button>
+        </div>
+      </div>
     </section>
   </main>
 <script>
-const PIN = "1234";
-const STORAGE_KEY = "central_chic_passkey_credential_id";
-const USER_ID_KEY = "central_chic_passkey_user_id";
-const $ = (id)=>document.getElementById(id);
-const msg=(text,type="")=>{$("message").className="msg "+type;$("message").textContent=text;};
-function b64url(buf){const bytes=new Uint8Array(buf);let s="";bytes.forEach(b=>s+=String.fromCharCode(b));return btoa(s).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/g,"");}
-function fromB64url(s){s=s.replace(/-/g,"+").replace(/_/g,"/");while(s.length%4)s+="=";const bin=atob(s);const buf=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)buf[i]=bin.charCodeAt(i);return buf.buffer;}
-function rand(n=32){const a=new Uint8Array(n);crypto.getRandomValues(a);return a;}
-function isSecureOk(){return window.isSecureContext || location.hostname==="localhost" || location.hostname==="127.0.0.1";}
-function showPanel(){ $("login").classList.add("hidden"); $("panel").classList.remove("hidden"); sessionStorage.setItem("central_chic_logged","1"); }
-function showLogin(){ $("panel").classList.add("hidden"); $("login").classList.remove("hidden"); sessionStorage.removeItem("central_chic_logged"); }
-async function webauthnAvailable(){ return !!(window.PublicKeyCredential && navigator.credentials && isSecureOk()); }
-async function registerFaceID(){
-  if(!(await webauthnAvailable())){msg("Face ID nie zadziała tutaj. Otwórz stronę przez HTTPS albo localhost.","err");return;}
-  const userId = rand(16); localStorage.setItem(USER_ID_KEY,b64url(userId));
-  try{
-    const cred = await navigator.credentials.create({publicKey:{
-      challenge: rand(32), rp:{name:"Central Chic Warsaw"}, user:{id:userId,name:"Grzegorz",displayName:"Grzegorz"},
-      pubKeyCredParams:[{type:"public-key",alg:-7},{type:"public-key",alg:-257}],
-      authenticatorSelection:{authenticatorAttachment:"platform", userVerification:"required", residentKey:"preferred"},
-      timeout:60000, attestation:"none"
-    }});
-    localStorage.setItem(STORAGE_KEY,b64url(cred.rawId));
-    msg("Face ID dodane na tym urządzeniu. Teraz możesz otwierać panel twarzą.","ok");
-  }catch(e){ msg("Nie dodano Face ID. Spróbuj ponownie albo użyj PIN-u.","err"); }
-}
-async function loginFaceID(){
-  if(!(await webauthnAvailable())){msg("Face ID wymaga HTTPS albo localhost. Teraz użyj PIN-u 1234.","err");return;}
-  const id = localStorage.getItem(STORAGE_KEY);
-  if(!id){msg("Najpierw kliknij „Dodaj Face ID na tym iPhonie”.","");return;}
-  try{
-    await navigator.credentials.get({publicKey:{challenge:rand(32),allowCredentials:[{type:"public-key",id:fromB64url(id)}],userVerification:"required",timeout:60000}});
-    showPanel();
-  }catch(e){ msg("Face ID nie potwierdzone. Użyj PIN-u albo spróbuj jeszcze raz.","err"); }
-}
-function pinLogin(){ if($("pin").value===PIN){showPanel();} else {msg("Błędny PIN.","err");} }
-$("registerFace").addEventListener("click",registerFaceID);
-$("loginFace").addEventListener("click",loginFaceID);
-$("pinBtn").addEventListener("click",pinLogin);
-$("pin").addEventListener("keydown",e=>{if(e.key==="Enter")pinLogin();});
-$("resetFace").addEventListener("click",()=>{localStorage.removeItem(STORAGE_KEY);localStorage.removeItem(USER_ID_KEY);msg("Usunięto Face ID zapisane w tej przeglądarce.","ok");});
-$("logout").addEventListener("click",showLogin);
-if(sessionStorage.getItem("central_chic_logged")==="1") showPanel();
+const $=id=>document.getElementById(id);const PIN="1234";
+const state={credentialId:localStorage.getItem('ccw_credential_id'),logged:sessionStorage.getItem('ccw_logged')==='1'};
+function b64url(buf){return btoa(String.fromCharCode(...new Uint8Array(buf))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}
+function fromB64url(s){s=s.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';return Uint8Array.from(atob(s),c=>c.charCodeAt(0))}
+function challenge(){let a=new Uint8Array(32);crypto.getRandomValues(a);return a}
+function showPanel(){sessionStorage.setItem('ccw_logged','1');$('login').classList.remove('active');$('panel').classList.add('active');$('loginState').textContent='Zalogowano'}
+function showLogin(){sessionStorage.removeItem('ccw_logged');$('panel').classList.remove('active');$('login').classList.add('active');$('loginState').textContent='Dostęp zabezpieczony'}
+function msg(t,cls=''){let m=$('msg');m.textContent=t;m.className='msg '+cls}
+async function register(){try{if(!window.PublicKeyCredential){msg('To urządzenie lub przeglądarka nie obsługuje passkeys.','err');return}const cred=await navigator.credentials.create({publicKey:{challenge:challenge(),rp:{name:'Central Chic Warsaw'},user:{id:challenge(),name:'owner@centralchic.local',displayName:'Central Chic Owner'},pubKeyCredParams:[{type:'public-key',alg:-7},{type:'public-key',alg:-257}],authenticatorSelection:{authenticatorAttachment:'platform',userVerification:'required'},timeout:60000,attestation:'none'}});localStorage.setItem('ccw_credential_id',b64url(cred.rawId));state.credentialId=localStorage.getItem('ccw_credential_id');msg('Face ID skonfigurowane na tym urządzeniu.','ok');showPanel()}catch(e){msg('Nie skonfigurowano Face ID: '+(e.message||e.name),'err')}}
+async function loginFace(){try{if(!state.credentialId){msg('Najpierw kliknij „Skonfiguruj Face ID”.','err');return}const assertion=await navigator.credentials.get({publicKey:{challenge:challenge(),allowCredentials:[{type:'public-key',id:fromB64url(state.credentialId)}],userVerification:'required',timeout:60000}});if(assertion){msg('Face ID potwierdzone.','ok');showPanel()}}catch(e){msg('Face ID przerwane albo niedostępne: '+(e.message||e.name),'err')}}
+$('registerBtn').onclick=register;$('faceBtn').onclick=loginFace;$('pinBtn').onclick=()=>{$('pin').value===PIN?(msg('PIN poprawny.','ok'),showPanel()):msg('Błędny PIN.','err')};$('pin').addEventListener('keydown',e=>{if(e.key==='Enter')$('pinBtn').click()});$('logoutBtn').onclick=showLogin;$('resetBtn').onclick=()=>{localStorage.removeItem('ccw_credential_id');state.credentialId=null;showLogin();msg('Face ID usunięte z tego urządzenia. Skonfiguruj ponownie.','ok')};$('aptStatus').value=localStorage.getItem('ccw_status')||'Gotowy dla gości';$('aptStatus').onchange=e=>localStorage.setItem('ccw_status',e.target.value);if(state.logged)showPanel();
 </script>
 </body>
 </html>
