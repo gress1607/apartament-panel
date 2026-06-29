@@ -1,8 +1,8 @@
 {
-  "name": "Central Chic Manager",
-  "short_name": "Apartament",
+  "name": "Central Chic",
+  "short_name": "Central Chic",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#111111",
-  "background_color": "#f4f5f7"
+  "theme_color": "#0f0f0f",
+  "background_color": "#f4efe7"
 }

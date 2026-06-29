@@ -1,3 +1,3 @@
-# Central Chic Manager
+# Central Chic
 
-Panel apartamentu: pościel, ręczniki, pralnia, sprzątanie i zapasy.
+Premium panel jednego lokalu.
