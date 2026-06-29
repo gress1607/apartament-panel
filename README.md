@@ -1,3 +1,3 @@
-# Central Chic
+# Central Chic Pro
 
-Premium panel jednego lokalu.
+Panel apartamentu bez integracji Booking/Airbnb: rezerwacje ręczne, sprzątanie, pralnia, magazyn, usterki, finanse i historia.
