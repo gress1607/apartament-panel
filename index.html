@@ -62,7 +62,7 @@ input,textarea,select{width:100%;border:1px solid #d6c8b5;border-radius:16px;pad
 
 <section id="home">
 <div class="card hero">
-  <h2>Dzisiaj</h2>
+  <h2 id="todayTitle">📅 Dzisiaj</h2>
   <div id="today"></div>
 </div>
 <div id="cleanStatusBox" class="statusBox card">Ładuję status sprzątania...</div>
@@ -169,7 +169,18 @@ function cls(q,m){return q<=m?"bad":q<=m+2?"mid":"ok"}
 function money(n){return Math.round(n).toLocaleString("pl-PL")+" zł"}
 function stockLabel(key){let labels={duvets:"Poszwy",pillow:"Poszewki",sheet:"Prześcieradła",big:"Ręczniki duże",small:"Ręczniki małe"};return labels[key]||key}
 function cleanText(){ if(CLEAN_STATUS==="GOTOWE") return ["🟢 Apartament gotowy","green"]; if(CLEAN_STATUS==="ZLECONE") return ["🟡 Sprzątanie zlecone firmie","yellow"]; return ["🔴 Apartament do sprzątania","red"]; }
+
+function updateTodayTitle(){
+  const now = new Date();
+  const date = now.toLocaleDateString("pl-PL", {weekday:"long", day:"2-digit", month:"long", year:"numeric"});
+  const time = now.toLocaleTimeString("pl-PL", {hour:"2-digit", minute:"2-digit"});
+  const el = document.getElementById("todayTitle");
+  if(el){ el.innerHTML = "📅 " + date.charAt(0).toUpperCase() + date.slice(1) + "<br><span class='small' style='color:rgba(255,255,255,.75)'>Aktualizacja: " + time + "</span>"; }
+}
+setInterval(updateTodayTitle, 60000);
+
 function render(){
+updateTodayTitle();
 let n=f4(), a=document.getElementById("alert"), pct=Math.min(100,Math.round((n/4)*100));
 if(n<=1){a.className="notice red card";a.innerHTML="🚨 PILNIE PRALNIA<br><span class='small'>Został "+n+" pełny pobyt 4-osobowy</span><div class='progress'><div class='bar' style='width:"+pct+"%'></div></div>"} 
 else if(n===2){a.className="notice orange card";a.innerHTML="⚠️ ZAPLANUJ PRALNIĘ<br><span class='small'>Zostały 2 pełne pobyty 4-osobowe</span><div class='progress'><div class='bar' style='width:"+pct+"%'></div></div>"} 
@@ -177,7 +188,7 @@ else if(n===3){a.className="notice yellow card";a.innerHTML="🟡 ZAPAS ŚREDNI<
 else {a.className="notice green card";a.innerHTML="✅ ZAPAS OK<br><span class='small'>"+n+" pełne pobyty 4-osobowe / "+f2()+" pobytów 2-osobowych</span><div class='progress'><div class='bar' style='width:"+pct+"%'></div></div>"}
 let cs=cleanText(); document.getElementById("cleanStatusBox").className="statusBox card "+cs[1]; document.getElementById("cleanStatusBox").innerHTML=cs[0]+"<br><span class='small'>Check-in od 15:00 · check-out do 11:00</span>";
 let low=SD.filter(i=>S[i[0]]<=i[3]).length, open=I.filter(x=>x.status!=="Naprawione").length;
-document.getElementById("today").innerHTML="<span class='badge'>🕒 Check-in 15:00</span><span class='badge'>🕚 Check-out 11:00</span><span class='badge'>🛏️ "+f4()+" pobyty 4 os.</span><span class='badge'>📲 Rezerwacje: Booking Pulse</span><span class='badge'>📦 niski stan: "+low+"</span><span class='badge'>🔧 usterki: "+open+"</span>";
+document.getElementById("today").innerHTML="<span class='badge'>🕒 Check-in 15:00</span><span class='badge'>🕚 Check-out 11:00</span><span class='badge'>🛏️ "+f4()+" pobyty 4 os.</span><span class='badge'>📲 Rezerwacje: Booking Pulse</span><span class='badge'>🔧 usterki: "+open+"</span>";
 document.getElementById("quickStock").innerHTML=TD.map(i=>"<div class='stockLine'><div><div class='name'>"+stockLabel(i[0])+"</div><div class='small'>"+i[1]+"</div></div><div class='qty "+cls(T[i[0]],i[3])+"'>"+(T[i[0]]||0)+" / "+i[2]+"</div></div>").join("");
 let rev=R.reduce((a,x)=>a+(+x.amt||0),0), cost=R.reduce((a,x)=>a+(+x.cl||0)+(+x.la||0),0), guests=R.reduce((a,x)=>a+(+x.g||0),0);
 document.getElementById("revKpi").innerText=money(rev); document.getElementById("profitKpi").innerText=money(rev-cost); document.getElementById("staysKpi").innerText=R.length; document.getElementById("guestsKpi").innerText=guests;
