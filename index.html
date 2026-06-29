@@ -154,7 +154,7 @@ function alertText(n){
   if(n<=1) return "🚨 ZOSTAŁ 1 PEŁNY POBYT<br><span class='small'>To moment, żeby oddać brudne do pralni.</span>";
   if(n===2) return "⚠️ ZAPLANUJ PRALNIĘ<br><span class='small'>Zapas na 2 pełne pobyty 4-osobowe.</span>";
   if(n===3) return "🟡 ZAPAS ŚREDNI<br><span class='small'>Zapas na 3 pełne pobyty 4-osobowe.</span>";
-  return "✅ ZAPAS OK<br><span class='small'>Zapas na "+n+" pełne pobyty 4-osobowe.</span>";
+  return "🟢 APARTAMENT GOTOWY<br><span class='small'>Zapas na "+n+" pełne pobyty (4 osoby).</span>";
 }
 function updateTodayTitle(){
   const now=new Date();
@@ -198,7 +198,7 @@ function render(){
   alert.innerHTML=alertText(f)+"<div class='progress'><div class='bar' style='width:"+pct+"%'></div></div>";
   document.getElementById("stockTable").innerHTML=ITEMS.map(i=>`
     <div class="line">
-      <div><div class="name">${i[1]}</div><div class="small">pełny stan: ${i[2]}</div></div>
+      <div><div class="name">${i[1]}</div></div>
       <div class="num clean">${stock.clean[i[0]]||0} / ${i[2]}</div>
       <div class="num dirty">${stock.dirty[i[0]]||0}</div>
       <div class="num laundry">${stock.laundry[i[0]]||0}</div>
