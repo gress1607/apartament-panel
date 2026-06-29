@@ -9,7 +9,7 @@
 <style>
 :root{
   --bg:#f4efe7; --card:#fffaf2; --ink:#15130f; --muted:#796f61;
-  --gold:#c8a35a; --gold2:#f4d889; --green:#16703b; --red:#a91d2b;
+  --gold:#c8a35a; --gold2:#f4d889; --dark:#101010; --green:#16703b; --red:#a91d2b;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
 *{box-sizing:border-box}
@@ -20,12 +20,13 @@ h1{font-size:26px;margin:0}.sub{font-size:13px;color:var(--muted);margin-top:2px
 .card{background:rgba(255,250,242,.9);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.8);border-radius:28px;padding:18px;margin:14px 0;box-shadow:0 12px 32px #5b463014}
 .hero{background:linear-gradient(145deg,#111,#32250f);color:#fff;border:0;position:relative;overflow:hidden}
 .hero:after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;right:-70px;top:-70px;background:radial-gradient(circle,#f4d88955,#0000 70%)}
-h2{font-size:19px;margin:0 0 13px}
+h2{font-size:19px;margin:0 0 13px}.gold{color:var(--gold2)}
 .badge{display:inline-flex;gap:6px;align-items:center;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:8px 11px;font-size:13px;font-weight:850;margin:4px}
+.pill{display:inline-block;background:#f1eadf;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:800;margin:3px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
 button{border:0;border-radius:19px;padding:15px 12px;font-weight:900;font-size:16px;background:linear-gradient(145deg,#161616,#000);color:white;box-shadow:0 8px 15px #0001}
 button.light{background:#eee9df;color:#15130f;box-shadow:none}button.good{background:linear-gradient(145deg,#1f8a4b,#0d5f30)}button.danger{background:linear-gradient(145deg,#c9273a,#850015)}button.goldbtn{background:linear-gradient(145deg,#f4d889,#c8a35a);color:#111}
-.notice{text-align:center;font-size:21px;font-weight:950;padding:18px;border-radius:24px}.red{background:#ffe0e4;color:#8a0018}.green{background:#dff5e8;color:#075d23}.yellow{background:#fff1c8;color:#745000}.orange{background:#ffe2c7;color:#8a3b00}
+.notice{text-align:center;font-size:21px;font-weight:950;padding:18px;border-radius:24px}.red{background:#ffe0e4;color:#8a0018}.green{background:#dff5e8;color:#075d23}.yellow{background:#fff1c8;color:#745000}
 .row{display:flex;justify-content:space-between;gap:10px;align-items:center;border-bottom:1px solid #eadfcd;padding:13px 0}.row:last-child{border-bottom:0}
 .name{font-weight:850}.small{font-size:13px;color:var(--muted)}.qty{font-size:27px;font-weight:950}.ok{color:var(--green)}.bad{color:var(--red)}.mid{color:#9a6200}
 input,textarea,select{width:100%;border:1px solid #d6c8b5;border-radius:16px;padding:13px;font-size:16px;background:#fffaf2}textarea{min-height:82px}
@@ -39,9 +40,6 @@ input,textarea,select{width:100%;border:1px solid #d6c8b5;border-radius:16px;pad
 .check{display:flex;align-items:center;gap:10px;padding:13px 0;border-bottom:1px solid #eadfcd}.check input{width:24px;height:24px}
 .kpi{display:grid;grid-template-columns:1fr 1fr;gap:10px}.kpi .tile{background:#fff;border-radius:22px;padding:15px}.tileNum{font-size:30px;font-weight:950}
 .segment{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;background:#eee9df;border-radius:18px;padding:5px;margin-bottom:12px}.segment button{box-shadow:none;background:transparent;color:#111;padding:10px 2px;border-radius:14px;font-size:13px}.segment button.on{background:#111;color:#f4d889}
-.progress{height:12px;background:#eadfcd;border-radius:999px;overflow:hidden;margin:12px 0 2px}.bar{height:100%;background:linear-gradient(90deg,#c8a35a,#f4d889);border-radius:999px}
-.stockLine{background:#fff;border-radius:18px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.statusBox{border-radius:22px;padding:15px;margin:10px 0;font-weight:900;text-align:center}
 </style>
 </head>
 <body>
@@ -65,25 +63,25 @@ input,textarea,select{width:100%;border:1px solid #d6c8b5;border-radius:16px;pad
   <h2>Dzisiaj</h2>
   <div id="today"></div>
 </div>
-<div id="cleanStatusBox" class="statusBox card">Ładuję status sprzątania...</div>
 <div id="alert" class="notice card">Ładuję...</div>
-<div class="card">
-  <h2>Rzeczywisty stan tekstyliów</h2>
-  <div id="quickStock"></div>
-</div>
 <div class="card">
   <h2>Nowy pobyt</h2>
   <div class="grid2">
-    <button onclick="stay(1)">👤 1 gość</button><button onclick="stay(2)">👥 2 gości</button>
-    <button onclick="stay(3)">👨‍👩‍👧 3 gości</button><button onclick="stay(4)">👨‍👩‍👧‍👦 4 gości</button>
+    <button onclick="stay(1)">1 gość</button><button onclick="stay(2)">2 gości</button>
+    <button onclick="stay(3)">3 gości</button><button onclick="stay(4)">4 gości</button>
   </div>
+</div>
+<div class="card">
+  <h2>Szybkie akcje</h2>
+  <button class="good" style="width:100%" onclick="laundry()">✅ Odebrano z pralni</button><br><br>
+  <button class="light" style="width:100%" onclick="cleanDone()">🧹 Sprzątanie wykonane</button>
 </div>
 </section>
 
 <section id="reservations" class="hidden">
 <div class="card"><h2>Dodaj rezerwację</h2>
-<input id="rStart" type="date"><div class="small">Przyjazd od 15:00</div><br>
-<input id="rEnd" type="date"><div class="small">Wyjazd do 11:00</div><br>
+<input id="rStart" type="date"><br><br>
+<input id="rEnd" type="date"><br><br>
 <select id="rGuests"><option value="1">1 gość</option><option value="2">2 gości</option><option value="3">3 gości</option><option value="4">4 gości</option></select><br><br>
 <select id="rSource"><option>Booking</option><option>Airbnb</option><option>Telefon</option><option>Inne</option></select><br><br>
 <input id="rAmount" type="number" placeholder="Kwota brutto, np. 850"><br><br>
@@ -96,16 +94,8 @@ input,textarea,select{width:100%;border:1px solid #d6c8b5;border-radius:16px;pad
 </section>
 
 <section id="cleaning" class="hidden">
-<div class="card">
-<h2>Firma sprzątająca</h2>
-<div id="cleaningPanel"></div>
-<div class="grid2">
-<button class="goldbtn" onclick="orderCleaning()">🟡 Zlecono sprzątanie</button>
-<button class="good" onclick="confirmCleaning()">🟢 Potwierdzono gotowe</button>
-</div><br>
-<button class="light" style="width:100%" onclick="resetCleaning()">Reset checklisty</button>
-</div>
-<div class="card"><h2>Checklista dla firmy</h2><div id="cleanList"></div></div>
+<div class="card"><h2>Checklista sprzątania</h2><div id="cleanList"></div>
+<button class="good" style="width:100%" onclick="finishCleaning()">✔ Apartament gotowy</button></div>
 </section>
 
 <section id="operations" class="hidden">
@@ -159,51 +149,39 @@ const APP_PASSWORD="1234";
 function unlock(){ if(document.getElementById('pass').value===APP_PASSWORD){sessionStorage.setItem('ok','1');document.getElementById('lock').style.display='none'} else document.getElementById('err').innerText='Złe hasło';}
 if(sessionStorage.getItem('ok')==='1') document.getElementById('lock').style.display='none';
 
-const TD=[["duvets","Poszwy na kołdrę 140×200",16,4,4,2],["pillow","Poszewki na poduszkę 50×70",20,4,4,2],["sheet","Prześcieradła",10,2,2,1],["big","Ręczniki 70×140",16,4,4,2],["small","Ręczniki 50×100",16,4,4,2]];
+const TD=[["duvets","Poszwy 140×200",16,4,4,2],["pillow","Poszewki 50×70",20,8,8,2],["sheet","Prześcieradła 180×240",10,2,2,1],["big","Ręczniki 70×140",16,4,4,2],["small","Ręczniki 50×100",16,4,4,2]];
 const SD=[["coffee","☕ Kapsułki Nespresso",40,10],["paper","🧻 Papier toaletowy",12,4],["cosm","🧴 Kosmetyki / mydło",4,1],["bags","🗑️ Worki na śmieci",20,5],["tabs","🍽️ Tabletki do zmywarki",20,5],["tea","🫖 Herbata",20,5],["sugar","🍬 Cukier",30,8],["salt","🧂 Sól / pieprz",2,1],["dish","🧼 Płyn do naczyń",2,1],["sponge","🧽 Gąbki",10,3],["towels","🧻 Ręczniki papierowe",6,2],["batteries","🔋 Baterie",8,2],["bulbs","💡 Żarówki",4,1]];
-const CL=["Łóżko 160×200 przygotowane","Sofa rozłożona/przygotowana jeśli potrzeba","Pościel zdjęta do brudnych","Czyste ręczniki wyłożone","Łazienka umyta","Kuchnia umyta","Podłoga odkurzona i umyta","Lustra przetarte","Kurz przetarty","Śmieci wyniesione","Kapsułki / papier / kosmetyki uzupełnione","Zdjęcia po sprzątaniu"];
+const CL=["Łóżko i pościel","Łazienka","Kuchnia","Podłoga","Lustra","Kurz","Śmieci","Ręczniki","Ekspres / kapsułki","Papier i kosmetyki","Zdjęcia po sprzątaniu"];
 function load(k,d){let x=JSON.parse(localStorage.getItem(k)||"null"); if(!x){x={};d.forEach(i=>x[i[0]]=i[2]);localStorage.setItem(k,JSON.stringify(x))} return x}
 let T=load("T",TD), S=load("S",SD), H=JSON.parse(localStorage.getItem("H")||"[]"), R=JSON.parse(localStorage.getItem("R")||"[]"), C=JSON.parse(localStorage.getItem("C")||"{}"), I=JSON.parse(localStorage.getItem("I")||"[]"), L=JSON.parse(localStorage.getItem("L")||"[]");
-let CLEAN_STATUS=localStorage.getItem("CLEAN_STATUS")||"GOTOWE";
-function save(){localStorage.setItem("T",JSON.stringify(T));localStorage.setItem("S",JSON.stringify(S));localStorage.setItem("H",JSON.stringify(H));localStorage.setItem("R",JSON.stringify(R));localStorage.setItem("C",JSON.stringify(C));localStorage.setItem("I",JSON.stringify(I));localStorage.setItem("L",JSON.stringify(L));localStorage.setItem("CLEAN_STATUS",CLEAN_STATUS)}
+function save(){localStorage.setItem("T",JSON.stringify(T));localStorage.setItem("S",JSON.stringify(S));localStorage.setItem("H",JSON.stringify(H));localStorage.setItem("R",JSON.stringify(R));localStorage.setItem("C",JSON.stringify(C));localStorage.setItem("I",JSON.stringify(I));localStorage.setItem("L",JSON.stringify(L))}
 function addH(t){H.unshift(new Date().toLocaleString("pl-PL")+" — "+t);H=H.slice(0,100);save()}
-function f4(){return Math.min(...TD.map(i=>Math.floor((T[i[0]]||0)/i[4])))} 
-function f2(){return Math.min(...TD.map(i=>Math.floor((T[i[0]]||0)/i[5])))}
+function f4(){return Math.min(...TD.map(i=>Math.floor(T[i[0]]/i[4])))} function f2(){return Math.min(...TD.map(i=>Math.floor(T[i[0]]/i[5])))}
 function use(g){return {duvets:g,pillow:g,sheet:g<=2?1:2,big:g,small:g}}
-function stay(g){if(!confirm("Odjąć tekstylia dla pobytu: "+g+" gości?"))return;let u=use(g);Object.keys(u).forEach(k=>T[k]=Math.max(0,(T[k]||0)-u[k]));CLEAN_STATUS="DO_SPRZATANIA";CL.forEach((_,i)=>C[i]=false);addH("Pobyt: "+g+" gości. Odjęto tekstylia i oznaczono apartament jako do sprzątania.");render()}
+function stay(g){if(!confirm("Odjąć tekstylia dla pobytu: "+g+" gości?"))return;let u=use(g);Object.keys(u).forEach(k=>T[k]=Math.max(0,T[k]-u[k]));addH("Pobyt: "+g+" gości. Odjęto tekstylia i ręczniki.");render()}
 function laundry(){if(!confirm("Przywrócić pełny stan tekstyliów po pralni?"))return;TD.forEach(i=>T[i[0]]=i[2]);L.unshift({type:"Odebrano z pralni",date:new Date().toLocaleString("pl-PL")});addH("Odebrano z pralni — pełny stan tekstyliów.");render()}
 function sendLaundry(){L.unshift({type:"Oddano do pralni",date:new Date().toLocaleString("pl-PL")});addH("Oddano tekstylia do pralni.");render()}
-function orderCleaning(){CLEAN_STATUS="ZLECONE";addH("Zlecono sprzątanie firmie zewnętrznej.");render()}
-function confirmCleaning(){CLEAN_STATUS="GOTOWE";CL.forEach((_,i)=>C[i]=true);addH("Firma potwierdziła sprzątanie — apartament gotowy.");render()}
-function resetCleaning(){CLEAN_STATUS="DO_SPRZATANIA";CL.forEach((_,i)=>C[i]=false);addH("Zresetowano checklistę sprzątania — apartament do sprzątania.");render()}
-function addReservation(){let s=document.getElementById("rStart").value,e=document.getElementById("rEnd").value,g=+document.getElementById("rGuests").value,src=document.getElementById("rSource").value,amt=+document.getElementById("rAmount").value||0,cl=+document.getElementById("rClean").value||0,la=+document.getElementById("rLaundry").value||0,n=document.getElementById("rNote").value.trim(); if(!s){alert("Wpisz datę przyjazdu");return} R.push({s,e,g,src,amt,cl,la,n,id:Date.now(),status:"Rezerwacja"}); R.sort((a,b)=>a.s.localeCompare(b.s)); addH("Dodano rezerwację: "+s+" od 15:00, wyjazd "+(e||"brak")+" do 11:00, "+g+" gości.");document.getElementById("rNote").value="";render()}
+function cleanDone(){addH("Sprzątanie wykonane.");render()}
+function finishCleaning(){CL.forEach((_,i)=>C[i]=true);addH("Checklista sprzątania oznaczona jako gotowa.");render()}
+function addReservation(){let s=document.getElementById("rStart").value,e=document.getElementById("rEnd").value,g=+document.getElementById("rGuests").value,src=document.getElementById("rSource").value,amt=+document.getElementById("rAmount").value||0,cl=+document.getElementById("rClean").value||0,la=+document.getElementById("rLaundry").value||0,n=document.getElementById("rNote").value.trim(); if(!s){alert("Wpisz datę przyjazdu");return} R.push({s,e,g,src,amt,cl,la,n,id:Date.now()}); R.sort((a,b)=>a.s.localeCompare(b.s)); addH("Dodano rezerwację: "+s+", "+g+" gości, "+src+".");document.getElementById("rNote").value="";render()}
 function delRes(id){R=R.filter(x=>x.id!==id);addH("Usunięto rezerwację.");render()}
-function completeRes(id){let r=R.find(x=>x.id===id); if(!r)return; if(confirm("Zakończyć pobyt po wymeldowaniu do 11:00 i odjąć tekstylia dla "+r.g+" gości?")){let u=use(r.g);Object.keys(u).forEach(k=>T[k]=Math.max(0,(T[k]||0)-u[k]));CLEAN_STATUS="DO_SPRZATANIA";CL.forEach((_,i)=>C[i]=false);addH("Zakończono pobyt. Apartament do sprzątania. Odjęto tekstylia dla "+r.g+" gości.");} render()}
+function completeRes(id){let r=R.find(x=>x.id===id); if(!r)return; if(confirm("Zakończyć pobyt i odjąć tekstylia dla "+r.g+" gości?")){let u=use(r.g);Object.keys(u).forEach(k=>T[k]=Math.max(0,T[k]-u[k]));addH("Zakończono pobyt: "+r.g+" gości. Odjęto tekstylia.");} render()}
 function addIssue(){let txt=document.getElementById("iText").value.trim(),p=document.getElementById("iPriority").value;if(!txt){alert("Wpisz opis usterki");return}I.unshift({txt,p,status:"Otwarte",id:Date.now(),date:new Date().toLocaleDateString("pl-PL")});document.getElementById("iText").value="";addH("Dodano usterkę: "+txt);render()}
 function fixIssue(id){I=I.map(x=>x.id===id?{...x,status:"Naprawione"}:x);addH("Oznaczono usterkę jako naprawioną.");render()}
 function cls(q,m){return q<=m?"bad":q<=m+2?"mid":"ok"}
 function money(n){return Math.round(n).toLocaleString("pl-PL")+" zł"}
-function stockLabel(key){let labels={duvets:"Poszwy",pillow:"Poszewki",sheet:"Prześcieradła",big:"Ręczniki duże",small:"Ręczniki małe"};return labels[key]||key}
-function cleanText(){ if(CLEAN_STATUS==="GOTOWE") return ["🟢 Apartament gotowy","green"]; if(CLEAN_STATUS==="ZLECONE") return ["🟡 Sprzątanie zlecone firmie","yellow"]; return ["🔴 Apartament do sprzątania","red"]; }
 function render(){
-let n=f4(), a=document.getElementById("alert"), pct=Math.min(100,Math.round((n/4)*100));
-if(n<=1){a.className="notice red card";a.innerHTML="🚨 PILNIE PRALNIA<br><span class='small'>Został "+n+" pełny pobyt 4-osobowy</span><div class='progress'><div class='bar' style='width:"+pct+"%'></div></div>"} 
-else if(n===2){a.className="notice orange card";a.innerHTML="⚠️ ZAPLANUJ PRALNIĘ<br><span class='small'>Zostały 2 pełne pobyty 4-osobowe</span><div class='progress'><div class='bar' style='width:"+pct+"%'></div></div>"} 
-else if(n===3){a.className="notice yellow card";a.innerHTML="🟡 ZAPAS ŚREDNI<br><span class='small'>Zostały 3 pełne pobyty 4-osobowe</span><div class='progress'><div class='bar' style='width:"+pct+"%'></div></div>"}
-else {a.className="notice green card";a.innerHTML="✅ ZAPAS OK<br><span class='small'>"+n+" pełne pobyty 4-osobowe / "+f2()+" pobytów 2-osobowych</span><div class='progress'><div class='bar' style='width:"+pct+"%'></div></div>"}
-let cs=cleanText(); document.getElementById("cleanStatusBox").className="statusBox card "+cs[1]; document.getElementById("cleanStatusBox").innerHTML=cs[0]+"<br><span class='small'>Check-in od 15:00 · check-out do 11:00</span>";
+let n=f4(), a=document.getElementById("alert"); if(n<=1){a.className="notice red card";a.innerHTML="🚨 WYŚLIJ PRANIE<br><span class='small'>Został "+n+" pełny komplet dla 4 osób</span>"} else if(n===2){a.className="notice yellow card";a.innerHTML="⚠️ Kończy się zapas<br><span class='small'>Zostały 2 pełne komplety dla 4 osób</span>"} else {a.className="notice green card";a.innerHTML="✅ Zapas OK<br><span class='small'>"+n+" kompletów dla 4 osób / "+f2()+" dla 2 osób</span>"}
 let next=R[0], low=SD.filter(i=>S[i[0]]<=i[3]).length, open=I.filter(x=>x.status!=="Naprawione").length;
-document.getElementById("today").innerHTML="<span class='badge'>🕒 Check-in 15:00</span><span class='badge'>🕚 Check-out 11:00</span><span class='badge'>🛏️ "+f4()+" pobyty 4 os.</span><span class='badge'>📅 "+(next?next.s+" / "+next.g+" os.":"brak rezerwacji")+"</span><span class='badge'>📦 niski stan: "+low+"</span><span class='badge'>🔧 usterki: "+open+"</span>";
-document.getElementById("quickStock").innerHTML=TD.map(i=>"<div class='stockLine'><div><div class='name'>"+stockLabel(i[0])+"</div><div class='small'>"+i[1]+"</div></div><div class='qty "+cls(T[i[0]],i[3])+"'>"+(T[i[0]]||0)+" / "+i[2]+"</div></div>").join("");
+document.getElementById("today").innerHTML="<span class='badge'>🛏️ "+f4()+" kompletów 4 os.</span><span class='badge'>👥 "+f2()+" kompletów 2 os.</span><span class='badge'>📅 "+(next?next.s+" / "+next.g+" os.":"brak rezerwacji")+"</span><span class='badge'>📦 niski stan: "+low+"</span><span class='badge'>🔧 usterki: "+open+"</span>";
 let rev=R.reduce((a,x)=>a+(+x.amt||0),0), cost=R.reduce((a,x)=>a+(+x.cl||0)+(+x.la||0),0), guests=R.reduce((a,x)=>a+(+x.g||0),0);
 document.getElementById("revKpi").innerText=money(rev); document.getElementById("profitKpi").innerText=money(rev-cost); document.getElementById("staysKpi").innerText=R.length; document.getElementById("guestsKpi").innerText=guests;
-document.getElementById("textiles").innerHTML=TD.map(i=>"<div class='row'><div><div class='name'>"+i[1]+"</div><div class='small'>Minimum: "+i[3]+" · zużycie 4 os.: "+i[4]+"</div></div><div class='qty "+cls(T[i[0]],i[3])+"'>"+(T[i[0]]||0)+" / "+i[2]+"</div></div>").join("");
+document.getElementById("textiles").innerHTML=TD.map(i=>"<div class='row'><div><div class='name'>"+i[1]+"</div><div class='small'>Minimum: "+i[3]+"</div></div><div class='qty "+cls(T[i[0]],i[3])+"'>"+T[i[0]]+"</div></div>").join("");
 document.getElementById("supplies").innerHTML=SD.map(i=>"<div class='row'><div><div class='name'>"+i[1]+"</div><div class='small'>Minimum: "+i[3]+"</div></div><div><button class='light' onclick='S[\""+i[0]+"\"]=Math.max(0,S[\""+i[0]+"\"]-1);addH(\"Zmniejszono: "+i[1]+"\");render()'>−</button> <span class='qty "+cls(S[i[0]],i[3])+"'>"+S[i[0]]+"</span> <button class='light' onclick='S[\""+i[0]+"\"]++;addH(\"Zwiększono: "+i[1]+"\");render()'>+</button></div></div>").join("");
-document.getElementById("editTextiles").innerHTML=TD.map(i=>"<div class='row'><div class='name'>"+i[1]+"</div><input id='t_"+i[0]+"' type='number' value='"+(T[i[0]]||0)+"'></div>").join("");
+document.getElementById("editTextiles").innerHTML=TD.map(i=>"<div class='row'><div class='name'>"+i[1]+"</div><input id='t_"+i[0]+"' type='number' value='"+T[i[0]]+"'></div>").join("");
 document.getElementById("editSupplies").innerHTML=SD.map(i=>"<div class='row'><div class='name'>"+i[1]+"</div><input id='s_"+i[0]+"' type='number' value='"+S[i[0]]+"'></div>").join("");
 document.getElementById("hist").innerHTML=H.length?H.map(x=>"<div class='row'><div class='small'>"+x+"</div></div>").join(""):"<div class='small'>Brak historii.</div>";
-document.getElementById("resList").innerHTML=R.length?R.map(x=>"<div class='row'><div><div class='name'>"+x.s+" 15:00"+(x.e?" → "+x.e+" 11:00":"")+" · "+x.g+" os.</div><div class='small'>"+x.src+" · "+money(x.amt||0)+" · "+(x.n||"bez notatki")+"</div></div><div><button class='good' onclick='completeRes("+x.id+")'>Wyjazd</button><br><br><button class='danger' onclick='delRes("+x.id+")'>Usuń</button></div></div>").join(""):"<div class='small'>Brak rezerwacji.</div>";
-document.getElementById("cleaningPanel").innerHTML="<div class='statusBox "+cs[1]+"'>"+cs[0]+"</div><div class='small'>Używaj tego modułu dla firmy zewnętrznej: najpierw „Zlecono sprzątanie”, potem po potwierdzeniu „Potwierdzono gotowe”.</div>";
+document.getElementById("resList").innerHTML=R.length?R.map(x=>"<div class='row'><div><div class='name'>"+x.s+(x.e?" → "+x.e:"")+" · "+x.g+" os.</div><div class='small'>"+x.src+" · "+money(x.amt||0)+" · "+(x.n||"bez notatki")+"</div></div><div><button class='good' onclick='completeRes("+x.id+")'>Zakończ</button><br><br><button class='danger' onclick='delRes("+x.id+")'>Usuń</button></div></div>").join(""):"<div class='small'>Brak rezerwacji.</div>";
 document.getElementById("cleanList").innerHTML=CL.map((x,i)=>"<label class='check'><input type='checkbox' "+(C[i]?"checked":"")+" onchange='C["+i+"]=this.checked;save()'><span class='name'>"+x+"</span></label>").join("");
 document.getElementById("laundryInfo").innerHTML=L.length?"<br>"+L.slice(0,10).map(x=>"<div class='row'><div><div class='name'>"+x.type+"</div><div class='small'>"+x.date+"</div></div></div>").join(""):"<br><div class='small'>Brak historii pralni.</div>";
 document.getElementById("issueList").innerHTML=I.length?I.map(x=>"<div class='row'><div><div class='name'>"+x.p+" · "+x.status+"</div><div class='small'>"+x.date+" — "+x.txt+"</div></div>"+(x.status!=='Naprawione'?"<button class='good' onclick='fixIssue("+x.id+")'>Naprawione</button>":"")+"</div>").join(""):"<div class='small'>Brak usterek.</div>";
@@ -211,7 +189,7 @@ document.getElementById("issueList").innerHTML=I.length?I.map(x=>"<div class='ro
 function saveTextiles(){TD.forEach(i=>T[i[0]]=Number(document.getElementById("t_"+i[0]).value||0));addH("Ręczna korekta tekstyliów.");render()}
 function saveSupplies(){SD.forEach(i=>S[i[0]]=Number(document.getElementById("s_"+i[0]).value||0));addH("Ręczna korekta magazynu.");render()}
 function saveNote(){let v=document.getElementById("note").value.trim();if(v){addH("Notatka: "+v);document.getElementById("note").value="";render()}}
-function resetAll(){if(!confirm("Na pewno zresetować wszystko?"))return;localStorage.clear();T=load("T",TD);S=load("S",SD);H=[];R=[];C={};I=[];L=[];CLEAN_STATUS="GOTOWE";addH("Reset aplikacji.");render()}
+function resetAll(){if(!confirm("Na pewno zresetować wszystko?"))return;localStorage.clear();T=load("T",TD);S=load("S",SD);H=[];R=[];C={};I=[];L=[];addH("Reset aplikacji.");render()}
 function tab(s,b){["home","reservations","cleaning","operations","more"].forEach(x=>document.getElementById(x).classList.toggle("hidden",x!==s));["bh","br","bc","bo","bm"].forEach(x=>document.getElementById(x).classList.toggle("active",x===b));render()}
 function opTab(x){["stock","laundry","issues"].forEach(k=>{document.getElementById("op-"+k).classList.toggle("hidden",k!==x);document.getElementById("op"+k.charAt(0).toUpperCase()+k.slice(1)).classList.toggle("on",k===x)});render()}
 render();

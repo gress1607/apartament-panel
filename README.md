@@ -1,3 +1,3 @@
-# Central Chic Pro v6
+# Central Chic Pro
 
-Dodano workflow dla firmy sprzątającej: do sprzątania, zlecone, potwierdzono gotowe. Check-in 15:00, check-out 11:00.
+Panel apartamentu bez integracji Booking/Airbnb: rezerwacje ręczne, sprzątanie, pralnia, magazyn, usterki, finanse i historia.
