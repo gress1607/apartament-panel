@@ -1,3 +1,3 @@
-# Central Chic Linen v2
+# Central Chic Pro v7
 
-Uproszczona aplikacja tylko do pościeli i ręczników. Bez rezerwacji, bez finansów, bez magazynu. Dodano informację: check-in od 15:00, check-out do 11:00.
+Poprawiona wersja: usunięto zakładkę Rezerwacje i ręczne wpisywanie rezerwacji. Zostają pościel, ręczniki, pralnia, firma sprzątająca, usterki, korekta i historia. Informacja check-in 15:00 / check-out 11:00 zostaje w panelu.
