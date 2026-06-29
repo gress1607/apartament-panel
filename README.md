@@ -1,3 +1,3 @@
-# Central Chic Pro v5
+# Central Chic Linen
 
-Poprawione liczenie kompletów: 4 osoby = 4 poszwy na kołdrę, 4 poszewki na poduszkę, 2 prześcieradła, 4 ręczniki duże i 4 małe.
+Prosta aplikacja do pościeli i ręczników: czyste, brudne, w pralni.
