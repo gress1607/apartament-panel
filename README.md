@@ -1,3 +1,3 @@
-# Central Chic Pro v5
+# Central Chic Pro v6
 
-Poprawione liczenie kompletów: 4 osoby = 4 poszwy na kołdrę, 4 poszewki na poduszkę, 2 prześcieradła, 4 ręczniki duże i 4 małe.
+Dodano workflow dla firmy sprzątającej: do sprzątania, zlecone, potwierdzono gotowe. Check-in 15:00, check-out 11:00.
