@@ -1,3 +1,3 @@
-# Central Chic Pro v7
+# Central Chic Warsaw v3.0
 
-Poprawiona wersja: usunięto zakładkę Rezerwacje i ręczne wpisywanie rezerwacji. Zostają pościel, ręczniki, pralnia, firma sprzątająca, usterki, korekta i historia. Informacja check-in 15:00 / check-out 11:00 zostaje w panelu.
+Ostateczna uproszczona wersja: tekstylia, czyste/brudne/pralnia, check-in 15:00, check-out 11:00, aktualna data, historia i korekta.
