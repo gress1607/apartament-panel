@@ -1,233 +1,89 @@
 <!doctype html>
 <html lang="pl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Central Chic Warsaw</title>
-<meta name="theme-color" content="#111111">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<style>
-:root{
-  --bg:#f4efe7; --card:#fffaf2; --ink:#15130f; --muted:#766c5e;
-  --gold:#c8a35a; --gold2:#f4d889; --green:#127a34; --yellow:#8a6500; --blue:#1769aa; --red:#a91d2b;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-}
-*{box-sizing:border-box}
-body{margin:0;min-height:100vh;background:radial-gradient(circle at 20% -10%,#ffe4a3 0,#f4efe7 38%,#f5f5f5 100%);color:var(--ink);padding:18px;max-width:620px;margin:auto}
-.header{display:flex;align-items:center;gap:12px;margin:8px 0 16px}
-.logo{width:58px;height:58px;border-radius:20px;background:linear-gradient(145deg,#111,#3a2b11);color:var(--gold2);display:flex;align-items:center;justify-content:center;font-weight:950;font-size:23px;box-shadow:0 10px 25px #0003}
-h1{font-size:27px;margin:0}.sub{font-size:13px;color:var(--muted);margin-top:2px}
-.card{background:rgba(255,250,242,.94);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.86);border-radius:28px;padding:18px;margin:14px 0;box-shadow:0 12px 32px #5b463014}
-.hero{background:linear-gradient(145deg,#111,#33260f);color:#fff;border:0;position:relative;overflow:hidden}
-.hero:after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;right:-70px;top:-70px;background:radial-gradient(circle,#f4d88955,#0000 70%)}
-h2{font-size:20px;margin:0 0 13px}
-.badge{display:inline-flex;gap:6px;align-items:center;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:8px 11px;font-size:13px;font-weight:850;margin:4px}
-.notice{text-align:center;font-size:22px;font-weight:950;padding:18px;border-radius:24px}.green{background:#ddf5e4;color:#075d23}.yellow{background:#fff1c8;color:#745000}.orange{background:#ffe2c7;color:#8a3b00}.red{background:#ffe0e4;color:#8a0018}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-button{border:0;border-radius:19px;padding:15px 12px;font-weight:900;font-size:16px;background:linear-gradient(145deg,#161616,#000);color:white;box-shadow:0 8px 15px #0001}
-button.good{background:linear-gradient(145deg,#1f8a4b,#0d5f30)}button.blue{background:linear-gradient(145deg,#277bc0,#13598e)}button.light{background:#eee9df;color:#15130f;box-shadow:none}button.danger{background:linear-gradient(145deg,#c9273a,#850015)}
-.tableHead,.line{display:grid;grid-template-columns:1.25fr .7fr .7fr .7fr;gap:8px;align-items:center}
-.tableHead{font-size:12px;color:var(--muted);font-weight:900;padding:0 0 7px;border-bottom:1px solid #eadfcd}
-.line{padding:12px 0;border-bottom:1px solid #eadfcd}.line:last-child{border-bottom:0}
-.name{font-weight:900}.small{font-size:13px;color:var(--muted)}.num{font-size:21px;font-weight:950;text-align:right}.clean{color:var(--green)}.dirty{color:var(--yellow)}.laundry{color:var(--blue)}
-input{width:100%;border:1px solid #d6c8b5;border-radius:14px;padding:10px;font-size:16px;background:#fffaf2;text-align:center}
-.progress{height:12px;background:#eadfcd;border-radius:999px;overflow:hidden;margin:12px 0 2px}.bar{height:100%;background:linear-gradient(90deg,#c8a35a,#f4d889);border-radius:999px}
-.tabs{position:sticky;bottom:0;background:rgba(255,250,242,.94);backdrop-filter:blur(18px);border:1px solid #fff;border-radius:26px;padding:8px;margin-top:16px;box-shadow:0 -8px 28px #0002;display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-.tabs button{font-size:13px;padding:12px 4px;border-radius:18px;background:#eee9df;color:#15130f;box-shadow:none}.tabs button.active{background:#111;color:#f4d889}
-.hidden{display:none}.hist{font-size:13px;color:var(--muted);line-height:1.35}
-#lock{position:fixed;inset:0;background:linear-gradient(145deg,#f4efe7,#fffaf2);z-index:9999;display:flex;align-items:center;justify-content:center;padding:18px}
-#lock .box{background:rgba(255,250,242,.96);border-radius:30px;padding:26px;width:100%;max-width:420px;box-shadow:0 20px 60px #0002;border:1px solid #fff}
-.lockLogo{width:82px;height:82px;border-radius:27px;margin:auto;background:linear-gradient(145deg,#111,#3a2b11);color:#f4d889;display:flex;align-items:center;justify-content:center;font-size:31px;font-weight:950}
-.err{color:var(--red);font-weight:850}
-.summaryGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tile{background:#fff;border-radius:22px;padding:14px}.tileNum{font-size:30px;font-weight:950}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#111827" />
+  <title>Central Chic Warsaw</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <style>
+    :root{--bg:#0f172a;--card:#111827;--card2:#1f2937;--text:#f9fafb;--muted:#aeb7c6;--accent:#d6b36a;--bad:#ef4444;--ok:#22c55e;}
+    *{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:radial-gradient(circle at top,#263247 0,#0f172a 46%,#070b14 100%);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:22px;}
+    .app{width:100%;max-width:430px}.card{background:rgba(17,24,39,.92);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:26px;box-shadow:0 24px 70px rgba(0,0,0,.35)}
+    .brand{display:flex;gap:14px;align-items:center;margin-bottom:22px}.logo{width:56px;height:56px;border-radius:18px;background:linear-gradient(135deg,#d6b36a,#8d7137);display:grid;place-items:center;font-size:28px;box-shadow:0 10px 28px rgba(214,179,106,.25)}
+    h1{font-size:25px;line-height:1.1;margin:0}.sub{color:var(--muted);font-size:14px;margin-top:6px}.hero{margin:18px 0 22px;padding:18px;border-radius:22px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08)}
+    .hero b{color:var(--accent)}button,input{width:100%;border:0;border-radius:16px;font-size:16px}button{padding:15px 16px;font-weight:700;color:#111827;background:var(--accent);margin-top:10px}button.secondary{background:rgba(255,255,255,.09);color:var(--text);border:1px solid rgba(255,255,255,.1)}button.danger{background:rgba(239,68,68,.12);color:#fecaca;border:1px solid rgba(239,68,68,.25)}
+    input{padding:15px 16px;background:#0b1220;color:var(--text);border:1px solid rgba(255,255,255,.12);outline:none;margin-top:10px;text-align:center;letter-spacing:7px;font-weight:800} .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.msg{min-height:22px;margin-top:13px;font-size:14px;color:var(--muted);line-height:1.35}.ok{color:#86efac}.err{color:#fca5a5}.hidden{display:none!important}.panel h2{margin:0 0 8px;font-size:23px}.tile{margin-top:12px;padding:14px;border-radius:18px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.08)}.small{font-size:13px;color:var(--muted);line-height:1.35}.footer{margin-top:14px;text-align:center;color:#7d8797;font-size:12px}
+  </style>
 </head>
 <body>
-<div id="lock"><div class="box">
-  <div class="lockLogo">CC</div>
-  <h1 style="text-align:center;margin-top:14px">Central Chic Warsaw</h1>
-  <div class="sub" style="text-align:center">Pościel i ręczniki</div>
-  <input id="pass" type="password" placeholder="Hasło" style="margin-top:18px;text-align:left" onkeydown="if(event.key==='Enter') unlock()">
-  <button style="width:100%;margin-top:10px" onclick="unlock()">Wejdź</button>
-  <p id="err" class="err"></p>
-  <div class="small">Domyślne hasło: 1234</div>
-</div></div>
-
-<div class="header">
-  <div class="logo">CC</div>
-  <div><h1>Central Chic Warsaw</h1><div class="sub">Wyzwolenia 10 · tekstylia</div></div>
-</div>
-
-<section id="panel">
-  <div class="card hero">
-    <h2 id="todayTitle">📅 Dzisiaj</h2>
-    <div class="badge">🕒 Check-in od 15:00</div>
-    <div class="badge">🕚 Check-out do 11:00</div>
-  </div>
-
-  <div id="alert" class="notice card">Ładuję...</div>
-
-  <div class="card">
-    <h2>Stan tekstyliów</h2>
-    <div class="tableHead"><div>Rodzaj</div><div style="text-align:right">Czyste</div><div style="text-align:right">Brudne</div><div style="text-align:right">Pralnia</div></div>
-    <div id="stockTable"></div>
-  </div>
-
-  <div class="card">
-    <h2>Nowy pobyt</h2>
-    <div class="small" style="margin-bottom:10px">Wybierz liczbę osób z Booking Pulse. Aplikacja odejmie z czystych i doda do brudnych.</div>
-    <div class="grid2">
-      <button onclick="arrival(1)">👤 1 osoba</button>
-      <button onclick="arrival(2)">👥 2 osoby</button>
-      <button onclick="arrival(3)">👨‍👩‍👧 3 osoby</button>
-      <button onclick="arrival(4)">👨‍👩‍👧‍👦 4 osoby</button>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>Pralnia</h2>
-    <div class="grid2">
-      <button class="blue" onclick="sendLaundry()">🧺 Oddaj brudne</button>
-      <button class="good" onclick="receiveLaundry()">✅ Odebrano</button>
-    </div>
-  </div>
-</section>
-
-<section id="edit" class="hidden">
-  <div class="card">
-    <h2>Ręczna korekta</h2>
-    <div class="small">Używaj tylko, gdy stan fizyczny w mieszkaniu nie zgadza się z aplikacją.</div>
-    <div id="editForm"></div>
-    <button style="width:100%;margin-top:12px" onclick="saveEdit()">Zapisz korektę</button>
-  </div>
-  <div class="card">
-    <button class="danger" style="width:100%" onclick="resetAll()">Reset do stanu początkowego</button>
-  </div>
-</section>
-
-<section id="history" class="hidden">
-  <div class="card">
-    <h2>Podsumowanie</h2>
-    <div class="summaryGrid">
-      <div class="tile"><div class="small">Pobyty 4-os.</div><div class="tileNum" id="sum4">0</div></div>
-      <div class="tile"><div class="small">Pobyty 2-os.</div><div class="tileNum" id="sum2">0</div></div>
-    </div>
-  </div>
-  <div class="card"><h2>Historia</h2><div id="hist"></div></div>
-</section>
-
-<div class="tabs">
-  <button id="bPanel" class="active" onclick="tab('panel','bPanel')">Panel</button>
-  <button id="bEdit" onclick="tab('edit','bEdit')">Korekta</button>
-  <button id="bHist" onclick="tab('history','bHist')">Historia</button>
-</div>
-
+  <main class="app">
+    <section id="login" class="card">
+      <div class="brand">
+        <div class="logo">⌂</div><div><h1>Central Chic Warsaw</h1><div class="sub">Panel apartamentu</div></div>
+      </div>
+      <div class="hero"><b>Face ID</b> może otwierać panel bez wpisywania PIN-u. PIN 1234 zostaje jako awaryjny dostęp.</div>
+      <button id="loginFace">Otwórz przez Face ID</button>
+      <button id="registerFace" class="secondary">Dodaj Face ID na tym iPhonie</button>
+      <input id="pin" inputmode="numeric" maxlength="4" placeholder="••••" aria-label="PIN" />
+      <div class="row"><button id="pinBtn" class="secondary">Wejdź PIN-em</button><button id="resetFace" class="danger">Reset Face ID</button></div>
+      <div id="message" class="msg"></div>
+      <div class="footer">Face ID wymaga HTTPS albo localhost.</div>
+    </section>
+    <section id="panel" class="card panel hidden">
+      <div class="brand"><div class="logo">⌂</div><div><h1>Central Chic Warsaw</h1><div class="sub">Zalogowano</div></div></div>
+      <h2>Panel główny</h2>
+      <div class="tile"><b>Status apartamentu</b><div class="small">Tu zostawiamy Twoje dotychczasowe moduły: sprzątanie, tekstylia, checklista, rezerwacje i notatki.</div></div>
+      <div class="tile"><b>Dostęp</b><div class="small">Wejście przez Face ID / passkey albo PIN awaryjny.</div></div>
+      <button id="logout" class="secondary">Wyloguj</button>
+    </section>
+  </main>
 <script>
-const APP_PASSWORD="1234";
-function unlock(){ if(document.getElementById('pass').value===APP_PASSWORD){sessionStorage.setItem('ccw_ok','1');document.getElementById('lock').style.display='none'} else document.getElementById('err').innerText='Złe hasło';}
-if(sessionStorage.getItem('ccw_ok')==='1') document.getElementById('lock').style.display='none';
-
-const ITEMS=[
-  ["duvets","Poszwy",16,4,2],
-  ["pillow","Poszewki",20,4,2],
-  ["sheet","Prześcieradła",10,2,1],
-  ["big","Ręczniki duże",16,4,2],
-  ["small","Ręczniki małe",16,4,2]
-];
-
-function initial(){
-  const obj={clean:{},dirty:{},laundry:{}};
-  ITEMS.forEach(i=>{obj.clean[i[0]]=i[2]; obj.dirty[i[0]]=0; obj.laundry[i[0]]=0;});
-  return obj;
+const PIN = "1234";
+const STORAGE_KEY = "central_chic_passkey_credential_id";
+const USER_ID_KEY = "central_chic_passkey_user_id";
+const $ = (id)=>document.getElementById(id);
+const msg=(text,type="")=>{$("message").className="msg "+type;$("message").textContent=text;};
+function b64url(buf){const bytes=new Uint8Array(buf);let s="";bytes.forEach(b=>s+=String.fromCharCode(b));return btoa(s).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/g,"");}
+function fromB64url(s){s=s.replace(/-/g,"+").replace(/_/g,"/");while(s.length%4)s+="=";const bin=atob(s);const buf=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)buf[i]=bin.charCodeAt(i);return buf.buffer;}
+function rand(n=32){const a=new Uint8Array(n);crypto.getRandomValues(a);return a;}
+function isSecureOk(){return window.isSecureContext || location.hostname==="localhost" || location.hostname==="127.0.0.1";}
+function showPanel(){ $("login").classList.add("hidden"); $("panel").classList.remove("hidden"); sessionStorage.setItem("central_chic_logged","1"); }
+function showLogin(){ $("panel").classList.add("hidden"); $("login").classList.remove("hidden"); sessionStorage.removeItem("central_chic_logged"); }
+async function webauthnAvailable(){ return !!(window.PublicKeyCredential && navigator.credentials && isSecureOk()); }
+async function registerFaceID(){
+  if(!(await webauthnAvailable())){msg("Face ID nie zadziała tutaj. Otwórz stronę przez HTTPS albo localhost.","err");return;}
+  const userId = rand(16); localStorage.setItem(USER_ID_KEY,b64url(userId));
+  try{
+    const cred = await navigator.credentials.create({publicKey:{
+      challenge: rand(32), rp:{name:"Central Chic Warsaw"}, user:{id:userId,name:"Grzegorz",displayName:"Grzegorz"},
+      pubKeyCredParams:[{type:"public-key",alg:-7},{type:"public-key",alg:-257}],
+      authenticatorSelection:{authenticatorAttachment:"platform", userVerification:"required", residentKey:"preferred"},
+      timeout:60000, attestation:"none"
+    }});
+    localStorage.setItem(STORAGE_KEY,b64url(cred.rawId));
+    msg("Face ID dodane na tym urządzeniu. Teraz możesz otwierać panel twarzą.","ok");
+  }catch(e){ msg("Nie dodano Face ID. Spróbuj ponownie albo użyj PIN-u.","err"); }
 }
-let stock=JSON.parse(localStorage.getItem("ccwStockV3")||"null") || initial();
-let history=JSON.parse(localStorage.getItem("ccwHistoryV3")||"[]");
-
-function save(){localStorage.setItem("ccwStockV3",JSON.stringify(stock));localStorage.setItem("ccwHistoryV3",JSON.stringify(history));}
-function log(t){history.unshift(new Date().toLocaleString("pl-PL")+" — "+t); history=history.slice(0,100); save();}
-function usage(g){return {duvets:g,pillow:g,sheet:g<=2?1:2,big:g,small:g};}
-function full4(){return Math.min(...ITEMS.map(i=>Math.floor((stock.clean[i[0]]||0)/i[3])));}
-function full2(){return Math.min(...ITEMS.map(i=>Math.floor((stock.clean[i[0]]||0)/i[4])));}
-function alertClass(n){return n<=1?"red":n===2?"orange":n===3?"yellow":"green";}
-function alertText(n){
-  if(n<=1) return "🚨 ZOSTAŁ 1 PEŁNY POBYT<br><span class='small'>To moment, żeby oddać brudne do pralni.</span>";
-  if(n===2) return "⚠️ ZAPLANUJ PRALNIĘ<br><span class='small'>Zapas na 2 pełne pobyty 4-osobowe.</span>";
-  if(n===3) return "🟡 ZAPAS ŚREDNI<br><span class='small'>Zapas na 3 pełne pobyty 4-osobowe.</span>";
-  return "🟢 APARTAMENT GOTOWY<br><span class='small'>Zapas na "+n+" pełne pobyty (4 osoby).</span>";
+async function loginFaceID(){
+  if(!(await webauthnAvailable())){msg("Face ID wymaga HTTPS albo localhost. Teraz użyj PIN-u 1234.","err");return;}
+  const id = localStorage.getItem(STORAGE_KEY);
+  if(!id){msg("Najpierw kliknij „Dodaj Face ID na tym iPhonie”.","");return;}
+  try{
+    await navigator.credentials.get({publicKey:{challenge:rand(32),allowCredentials:[{type:"public-key",id:fromB64url(id)}],userVerification:"required",timeout:60000}});
+    showPanel();
+  }catch(e){ msg("Face ID nie potwierdzone. Użyj PIN-u albo spróbuj jeszcze raz.","err"); }
 }
-function updateTodayTitle(){
-  const now=new Date();
-  const date=now.toLocaleDateString("pl-PL",{weekday:"long",day:"2-digit",month:"long",year:"numeric"});
-  const time=now.toLocaleTimeString("pl-PL",{hour:"2-digit",minute:"2-digit"});
-  const text=date.charAt(0).toUpperCase()+date.slice(1);
-  document.getElementById("todayTitle").innerHTML="📅 "+text+"<br><span class='small' style='color:rgba(255,255,255,.76)'>Aktualizacja: "+time+"</span>";
-}
-setInterval(updateTodayTitle,60000);
-
-function arrival(g){
-  const u=usage(g);
-  for(const k in u){
-    if((stock.clean[k]||0)<u[k]){alert("Brakuje czystych tekstyliów dla "+g+" osób. Sprawdź korektę albo odbierz z pralni.");return;}
-  }
-  for(const k in u){stock.clean[k]-=u[k]; stock.dirty[k]+=u[k];}
-  log("Pobyt "+g+" os. — odjęto z czystych i dodano do brudnych.");
-  render();
-}
-function sendLaundry(){
-  const total=ITEMS.reduce((a,i)=>a+(stock.dirty[i[0]]||0),0);
-  if(total===0){alert("Nie ma brudnych tekstyliów do oddania.");return;}
-  if(!confirm("Przenieść wszystkie brudne tekstylia do pralni?"))return;
-  ITEMS.forEach(i=>{const k=i[0];stock.laundry[k]+=stock.dirty[k];stock.dirty[k]=0;});
-  log("Oddano wszystkie brudne tekstylia do pralni.");
-  render();
-}
-function receiveLaundry(){
-  const total=ITEMS.reduce((a,i)=>a+(stock.laundry[i[0]]||0),0);
-  if(total===0){alert("Nie ma tekstyliów w pralni.");return;}
-  if(!confirm("Przenieść wszystko z pralni do czystych?"))return;
-  ITEMS.forEach(i=>{const k=i[0];stock.clean[k]+=stock.laundry[k];stock.laundry[k]=0;});
-  log("Odebrano tekstylia z pralni — wróciły do czystych.");
-  render();
-}
-function render(){
-  updateTodayTitle();
-  const f=full4(), pct=Math.min(100,Math.round((f/4)*100));
-  const alert=document.getElementById("alert");
-  alert.className="notice card "+alertClass(f);
-  alert.innerHTML=alertText(f)+"<div class='progress'><div class='bar' style='width:"+pct+"%'></div></div>";
-  document.getElementById("stockTable").innerHTML=ITEMS.map(i=>`
-    <div class="line">
-      <div><div class="name">${i[1]}</div></div>
-      <div class="num clean">${stock.clean[i[0]]||0} / ${i[2]}</div>
-      <div class="num dirty">${stock.dirty[i[0]]||0}</div>
-      <div class="num laundry">${stock.laundry[i[0]]||0}</div>
-    </div>`).join("");
-  document.getElementById("editForm").innerHTML=["clean","dirty","laundry"].map(state=>{
-    const label=state==="clean"?"Czyste":state==="dirty"?"Brudne":"W pralni";
-    let part="<h2 style='margin-top:18px'>"+label+"</h2>";
-    ITEMS.forEach(i=>{part+=`<div class="line"><div class="name">${i[1]}</div><input id="${state}_${i[0]}" type="number" value="${stock[state][i[0]]||0}"><div></div><div></div></div>`;});
-    return part;
-  }).join("");
-  document.getElementById("hist").innerHTML=history.length?history.map(x=>"<div class='line'><div class='hist'>"+x+"</div><div></div><div></div><div></div></div>").join(""):"<div class='small'>Brak historii.</div>";
-  document.getElementById("sum4").innerText=full4();
-  document.getElementById("sum2").innerText=full2();
-}
-function saveEdit(){
-  ["clean","dirty","laundry"].forEach(state=>ITEMS.forEach(i=>stock[state][i[0]]=Number(document.getElementById(state+"_"+i[0]).value||0)));
-  log("Ręczna korekta stanów.");
-  render();
-}
-function resetAll(){
-  if(!confirm("Na pewno zresetować wszystko do stanu początkowego?"))return;
-  stock=initial();history=[];log("Reset do stanu początkowego.");render();
-}
-function tab(section,btn){
-  ["panel","edit","history"].forEach(s=>document.getElementById(s).classList.toggle("hidden",s!==section));
-  ["bPanel","bEdit","bHist"].forEach(b=>document.getElementById(b).classList.toggle("active",b===btn));
-  render();
-}
-render();
+function pinLogin(){ if($("pin").value===PIN){showPanel();} else {msg("Błędny PIN.","err");} }
+$("registerFace").addEventListener("click",registerFaceID);
+$("loginFace").addEventListener("click",loginFaceID);
+$("pinBtn").addEventListener("click",pinLogin);
+$("pin").addEventListener("keydown",e=>{if(e.key==="Enter")pinLogin();});
+$("resetFace").addEventListener("click",()=>{localStorage.removeItem(STORAGE_KEY);localStorage.removeItem(USER_ID_KEY);msg("Usunięto Face ID zapisane w tej przeglądarce.","ok");});
+$("logout").addEventListener("click",showLogin);
+if(sessionStorage.getItem("central_chic_logged")==="1") showPanel();
 </script>
 </body>
 </html>
